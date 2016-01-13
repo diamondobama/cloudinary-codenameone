@@ -23,6 +23,7 @@ public class Url {
 	private final Configuration config;
 	String publicId = null;
 	String type = null;
+        String cacheName = null;
 	String resourceType = null;
 	String format = null;
 	String version = null;
@@ -118,6 +119,11 @@ public class Url {
 
 	public Url type(String type) {
 		this.type = type;
+		return this;
+	}
+
+	public Url cacheName(String cacheName) {
+		this.cacheName = cacheName;
 		return this;
 	}
 
@@ -677,6 +683,10 @@ public class Url {
             t.width(placeholder.getWidth());
             t.height(placeholder.getHeight());
             String url = generate(source);
+            String cache = this.cacheName;
+            if (cache == null) {
+                cache = url;
+            }
             return URLImage.createToStorage(placeholder, url, url, null);
         }
 }
