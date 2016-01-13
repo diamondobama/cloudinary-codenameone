@@ -687,6 +687,6 @@ public class Url {
             if (cache == null) {
                 cache = url;
             }
-            return URLImage.createToStorage(placeholder, url, url, null);
+            return URLImage.createToStorage(placeholder, cache, url, null);
         }
 }
